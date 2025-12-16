@@ -11,29 +11,31 @@ public class Sale {
     }
 
     public ArrayList<Product>  getProducts() {
-        return products;
+        return this.products;
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+
+    public Product getProduct(int index) {
+        return this.products.get(index);
     }
 
 
     public void calculateTotal() throws EmptySaleException {
-        if (products.isEmpty()) {
+        if (this.products.isEmpty()) {
            throw new EmptySaleException();
         } else {
             totalPrice = 0;
-            for(Product product : products) {
+            for(Product product : this.products) {
                 totalPrice += product.getPrice();
             }
 
         }
     }
 
-    public void addProduct(Product product) {
-        products.add(product);
-    }
 
-    public Product getProduct(int index) {
-        return products.get(index);
-    }
 
 
 }
