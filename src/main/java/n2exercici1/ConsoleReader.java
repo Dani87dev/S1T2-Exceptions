@@ -78,7 +78,7 @@ public class ConsoleReader {
         }
         return input;
     }
-
+    //OPCIÓ B 1 de 3
     public static char readChar(String message)throws CharToLongException {
         // Només accepta un únic caràcter. Si se n’introdueix més d’un, llença una excepció personalitzada.
         String inputString="";
@@ -97,18 +97,44 @@ public class ConsoleReader {
         return inputChar;
     }
 
-    public static String readString(String message) {
+    //OPCIÓ B 1 de 3
+    public static String readString(String message) throws SentenceToShort{
         // Llegeix una cadena tal com es rep, però podries validar longitud mínima o contingut si cal.
         String input="";
+        boolean validation = false;
+
+        while(!validation) {
+            System.out.println("Introduce a sentence with minimun 15 characters");
+            input = entry.nextLine();
+            if (input.length()>=15) {
+                validation = true;
+            } else {
+                throw new SentenceToShort();
+            }
+        }
         return input;
     }
 
-
+    //OPCIÓ B 1 de 3
     public static boolean readYesNo(String message) {
         // Si l’usuari/ària introdueix “s” (minúscula), retorna true. Si introdueix “n”, retorna false.
         // Qualsevol altra entrada hauria de generar una excepció personalitzada.
-        boolean input = false;
-        return input;
+        boolean validationYoN = false;
+        boolean bucleValidation= false;
+        String answer = "";
+
+        while(!bucleValidation) {
+            System.out.println("Introduce 'y'(YES) or 'n'(NO):");
+            answer = entry.nextLine();
+            if(answer.equals("s") ){
+                validationYoN = true;
+            } else if (answer.equals("n")) {
+                validationYoN = false;
+            } else {
+                throw new IncorrectAnswerException();
+            }
+        }
+        return validationYoN;
     }
 
 }
