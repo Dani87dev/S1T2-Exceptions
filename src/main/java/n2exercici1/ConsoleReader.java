@@ -14,7 +14,7 @@ public class ConsoleReader {
         byte input=0;
         boolean validation = false;
         while(!validation) {
-            System.out.println("Introduce an byte type number");
+            System.out.println("please, introduce an byte type number");
             try {
                 input = entry.nextByte();
                 validation= true;
