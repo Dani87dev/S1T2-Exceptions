@@ -19,7 +19,7 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.next();
+                entry.nextLine();
             }
         }
         return input;
@@ -38,7 +38,7 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.next();
+                entry.nextLine();
             }
         }
         return input;
@@ -56,7 +56,7 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.next();
+                entry.nextLine();
             }
         }
         return input;
@@ -75,7 +75,7 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.next();
+                entry.nextLine();
             }
         }
         return input;
