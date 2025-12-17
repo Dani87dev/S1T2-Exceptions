@@ -31,5 +31,5 @@ and then ensuring its capture and management using the try-catch block.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [your_repository_url]
+    git clone https://github.com/Dani87dev/S1T2-Exceptions.git
     ```
