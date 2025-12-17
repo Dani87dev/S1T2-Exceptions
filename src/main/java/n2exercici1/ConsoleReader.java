@@ -11,11 +11,12 @@ public class ConsoleReader {
     public static byte readByte(String message) {
         byte input=0;
         boolean validation = false;
+
         while(!validation) {
             System.out.println(message);
             try {
                 input = entry.nextByte();
-                entry.nextLine();
+                entry.nextLine(); // clean buffer
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
@@ -31,13 +32,12 @@ public class ConsoleReader {
 
         while(!validation) {
             System.out.println(message);
-
             try {
                 input = entry.nextInt();
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.nextLine();
+                entry.nextLine(); // clean buffer
             }
         }
         return input;
@@ -55,15 +55,14 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.nextLine();
+                entry.nextLine(); // clean buffer
             }
         }
         return input;
     }
 
-    //Amb tractament d'InputMismatchException:
     public static double readDouble(String message) {
-        double input = 0;
+        double input = 0d;
         boolean validation = false;
 
         while(!validation) {
@@ -74,14 +73,14 @@ public class ConsoleReader {
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.nextLine();
+                entry.nextLine(); // clean buffer
             }
         }
         return input;
     }
-    //Amb una excepció personalitzada:
+
+    // Custom exceptions
     public static char readChar(String message)throws CharToLongException {
-        // Només accepta un únic caràcter. Si se n’introdueix més d’un, llença una excepció personalitzada.
         String inputString="";
         char inputChar=' ';
         boolean validation = false;
@@ -103,14 +102,12 @@ public class ConsoleReader {
         return inputChar;
     }
 
-    //Amb una excepció personalitzada:
     public static String readString(String message) throws SentenceToShort{
-        // Llegeix una cadena tal com es rep, però podries validar longitud mínima o contingut si cal.
+        // validate that the minimum length is 15 characters
         String input="";
         boolean validation = false;
 
         while(!validation) {
-
             try {
                 System.out.println(message);
                 input = entry.nextLine();
@@ -126,14 +123,12 @@ public class ConsoleReader {
         return input;
     }
 
-    //Amb una excepció personalitzada:
     public static boolean readYesNo(String message) {
         boolean validationYoN = false;
         boolean bucleValidation= false;
         String answer = "";
 
         while(!bucleValidation) {
-
             try {
                 System.out.println(message);
                 answer = entry.nextLine();
