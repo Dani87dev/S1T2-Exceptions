@@ -31,10 +31,9 @@ public class ConsoleReader {
 
         while(!validation) {
             System.out.println(message);
-            entry.nextLine();
+
             try {
                 input = entry.nextInt();
-
                 validation= true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
@@ -68,7 +67,7 @@ public class ConsoleReader {
         boolean validation = false;
 
         while(!validation) {
-            System.out.println("Introduce an Double type number");
+            System.out.println(message);
             try {
                 input = entry.nextDouble();
                 entry.nextLine(); //clean buffer
