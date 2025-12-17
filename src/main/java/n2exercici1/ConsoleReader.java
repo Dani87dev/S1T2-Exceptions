@@ -132,7 +132,7 @@ public class ConsoleReader {
             try {
                 System.out.println(message);
                 answer = entry.nextLine();
-                if(answer.equals("s") ){
+                if(answer.equals("y") ){
                     validationYoN = true;
                     bucleValidation = true;
                 } else if (answer.equals("n")) {
