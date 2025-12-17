@@ -7,14 +7,12 @@ public class ConsoleReader {
 
     static Scanner entry = new Scanner(System.in);
 
-    //Métodes
 
-    //Amb tractament d'InputMismatchException:
     public static byte readByte(String message) {
         byte input=0;
         boolean validation = false;
         while(!validation) {
-            System.out.println("please, introduce an byte type number");
+            System.out.println(message);
             try {
                 input = entry.nextByte();
                 entry.nextLine();
@@ -27,13 +25,12 @@ public class ConsoleReader {
         return input;
     }
 
-    //Amb tractament d'InputMismatchException:
     public static int readInt(String message) throws InputMismatchException{
         int input = 0;
         boolean validation = false;
 
         while(!validation) {
-            System.out.println("Introduce an integer type number");
+            System.out.println(message);
             entry.nextLine();
             try {
                 input = entry.nextInt();
@@ -46,13 +43,13 @@ public class ConsoleReader {
         }
         return input;
     }
-    //Amb tractament d'InputMismatchException:
+
     public static float readFloat(String message){
         float input= 0f;
         boolean validation = false;
 
         while(!validation) {
-            System.out.println("Introduce an integer type number");
+            System.out.println(message);
             try {
                 input = entry.nextFloat();
                 entry.nextLine(); //clean buffer
@@ -91,15 +88,17 @@ public class ConsoleReader {
         boolean validation = false;
 
         while(!validation) {
-
-            //meter try catch
-
-            System.out.println("Introduce a Char type character");
-            inputString = entry.nextLine();
-            if (inputString.length()==1) {
-                inputChar = inputString.charAt(0);
-            } else {
-                throw new CharToLongException();
+            try {
+                System.out.println(message);
+                inputString = entry.nextLine();
+                if (inputString.length()==1) {
+                    inputChar = inputString.charAt(0);
+                    validation = true;
+                } else {
+                    throw new CharToLongException();
+                }
+            } catch (CharToLongException e) {
+                System.out.println(e.getMessage());
             }
         }
         return inputChar;
@@ -113,14 +112,16 @@ public class ConsoleReader {
 
         while(!validation) {
 
-            //meter try catch
-
-            System.out.println("Introduce a sentence with minimun 15 characters");
-            input = entry.nextLine();
-            if (input.length()>=15) {
-                validation = true;
-            } else {
-                throw new SentenceToShort();
+            try {
+                System.out.println(message);
+                input = entry.nextLine();
+                if (input.length()>=15) {
+                    validation = true;
+                } else {
+                    throw new SentenceToShort();
+                }
+            } catch (SentenceToShort e) {
+                System.out.println(e.getMessage());
             }
         }
         return input;
@@ -128,24 +129,26 @@ public class ConsoleReader {
 
     //Amb una excepció personalitzada:
     public static boolean readYesNo(String message) {
-        // Si l’usuari/ària introdueix “s” (minúscula), retorna true. Si introdueix “n”, retorna false.
-        // Qualsevol altra entrada hauria de generar una excepció personalitzada.
         boolean validationYoN = false;
         boolean bucleValidation= false;
         String answer = "";
 
         while(!bucleValidation) {
-            System.out.println("Introduce 'y'(YES) or 'n'(NO):");
-            answer = entry.nextLine();
 
-            //meter try catch
-
-            if(answer.equals("s") ){
-                validationYoN = true;
-            } else if (answer.equals("n")) {
-                validationYoN = false;
-            } else {
-                throw new IncorrectAnswerException();
+            try {
+                System.out.println(message);
+                answer = entry.nextLine();
+                if(answer.equals("s") ){
+                    validationYoN = true;
+                    bucleValidation = true;
+                } else if (answer.equals("n")) {
+                    validationYoN = false;
+                    bucleValidation = true;
+                } else {
+                    throw new IncorrectAnswerException();
+                }
+            } catch (IncorrectAnswerException e) {
+                System.out.println(e.getMessage());
             }
         }
         return validationYoN;
