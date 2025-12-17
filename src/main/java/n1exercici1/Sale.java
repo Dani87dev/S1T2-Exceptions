@@ -10,7 +10,7 @@ public class Sale {
     public Sale() {
     }
 
-    public ArrayList<Product>  getProducts() {
+    public ArrayList<Product>  getAllProducts() {
         return this.products;
     }
 

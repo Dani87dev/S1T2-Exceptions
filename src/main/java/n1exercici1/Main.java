@@ -16,7 +16,7 @@ public class Main {
         venta1.addProduct(Switch2);
 
         try {
-            venta1.getProduct(venta1.getProducts().size()+1);
+            venta1.getProduct(venta1.getAllProducts().size()+1);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Error with the required index.");
         }
