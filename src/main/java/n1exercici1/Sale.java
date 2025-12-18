@@ -1,16 +1,17 @@
 package n1exercici1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
 
-    private ArrayList<Product> products = new ArrayList<Product>();
+    private List<Product> products = new ArrayList<>();
     private double totalPrice = 0d;
 
     public Sale() {
     }
 
-    public ArrayList<Product> getAllProducts() {
+    public List<Product> getAllProducts() {
         return this.products;
     }
 
