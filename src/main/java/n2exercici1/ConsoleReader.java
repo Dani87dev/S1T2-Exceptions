@@ -9,15 +9,15 @@ public class ConsoleReader {
 
 
     public static byte readByte(String message) {
-        byte input=0;
+        byte input = 0;
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             System.out.println(message);
             try {
                 input = entry.nextByte();
                 entry.nextLine(); // clean buffer
-                validation= true;
+                validation = true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
                 entry.nextLine();
@@ -26,15 +26,15 @@ public class ConsoleReader {
         return input;
     }
 
-    public static int readInt(String message) throws InputMismatchException{
+    public static int readInt(String message) throws InputMismatchException {
         int input = 0;
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             System.out.println(message);
             try {
                 input = entry.nextInt();
-                validation= true;
+                validation = true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
                 entry.nextLine(); // clean buffer
@@ -43,16 +43,16 @@ public class ConsoleReader {
         return input;
     }
 
-    public static float readFloat(String message){
-        float input= 0f;
+    public static float readFloat(String message) {
+        float input = 0f;
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             System.out.println(message);
             try {
                 input = entry.nextFloat();
                 entry.nextLine(); //clean buffer
-                validation= true;
+                validation = true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
                 entry.nextLine(); // clean buffer
@@ -65,12 +65,12 @@ public class ConsoleReader {
         double input = 0d;
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             System.out.println(message);
             try {
                 input = entry.nextDouble();
                 entry.nextLine(); //clean buffer
-                validation= true;
+                validation = true;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
                 entry.nextLine(); // clean buffer
@@ -80,16 +80,16 @@ public class ConsoleReader {
     }
 
     // Custom exceptions
-    public static char readChar(String message)throws CharToLongException {
-        String inputString="";
-        char inputChar=' ';
+    public static char readChar(String message) throws CharToLongException {
+        String inputString = "";
+        char inputChar = ' ';
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             try {
                 System.out.println(message);
                 inputString = entry.nextLine();
-                if (inputString.length()==1) {
+                if (inputString.length() == 1) {
                     inputChar = inputString.charAt(0);
                     validation = true;
                 } else {
@@ -102,16 +102,16 @@ public class ConsoleReader {
         return inputChar;
     }
 
-    public static String readString(String message) throws SentenceToShort{
+    public static String readString(String message) throws SentenceToShort {
         // validate that the minimum length is 15 characters
-        String input="";
+        String input = "";
         boolean validation = false;
 
-        while(!validation) {
+        while (!validation) {
             try {
                 System.out.println(message);
                 input = entry.nextLine();
-                if (input.length()>=15) {
+                if (input.length() >= 15) {
                     validation = true;
                 } else {
                     throw new SentenceToShort();
@@ -125,14 +125,14 @@ public class ConsoleReader {
 
     public static boolean readYesNo(String message) {
         boolean validationYoN = false;
-        boolean bucleValidation= false;
+        boolean bucleValidation = false;
         String answer = "";
 
-        while(!bucleValidation) {
+        while (!bucleValidation) {
             try {
                 System.out.println(message);
                 answer = entry.nextLine();
-                if(answer.equals("y") ){
+                if (answer.equals("y")) {
                     validationYoN = true;
                     bucleValidation = true;
                 } else if (answer.equals("n")) {
