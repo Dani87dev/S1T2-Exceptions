@@ -23,7 +23,7 @@ public class Sale {
     }
 
 
-    public void calculateTotal() throws EmptySaleException {
+    public void calculateTotal()  {
         if (this.products.isEmpty()) {
             throw new EmptySaleException();
         } else {
