@@ -23,15 +23,13 @@ public class Sale {
     }
 
 
-    public void calculateTotal()  {
+    public void calculateTotal() {
         if (this.products.isEmpty()) {
             throw new EmptySaleException();
-        } else {
-            totalPrice = 0;
-            for (Product product : this.products) {
-                totalPrice += product.getPrice();
-            }
-
+        }
+        totalPrice = 0;
+        for (Product product : this.products) {
+            totalPrice += product.getPrice();
         }
     }
 
