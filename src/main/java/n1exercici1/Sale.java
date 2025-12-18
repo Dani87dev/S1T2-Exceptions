@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Sale {
 
-    private ArrayList <Product> products = new ArrayList<Product>();
-    private  double totalPrice=0d;
+    private ArrayList<Product> products = new ArrayList<Product>();
+    private double totalPrice = 0d;
 
     public Sale() {
     }
 
-    public ArrayList<Product>  getAllProducts() {
+    public ArrayList<Product> getAllProducts() {
         return this.products;
     }
 
@@ -25,17 +25,15 @@ public class Sale {
 
     public void calculateTotal() throws EmptySaleException {
         if (this.products.isEmpty()) {
-           throw new EmptySaleException();
+            throw new EmptySaleException();
         } else {
             totalPrice = 0;
-            for(Product product : this.products) {
+            for (Product product : this.products) {
                 totalPrice += product.getPrice();
             }
 
         }
     }
-
-
 
 
 }
