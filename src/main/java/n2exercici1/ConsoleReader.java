@@ -26,21 +26,19 @@ public class ConsoleReader {
         return input;
     }
 
-    public static int readInt(String message) throws InputMismatchException {
-        int input = 0;
-        boolean validation = false;
+    public static int readInt(String message)  {
 
-        while (!validation) {
+        while(true) {
             System.out.println(message);
             try {
-                input = entry.nextInt();
-                validation = true;
+                int input = entry.nextInt();
+                entry.nextLine(); //clean buffer
+                return input;
             } catch (InputMismatchException e) {
                 System.out.println("Format error");
-                entry.nextLine(); // clean buffer
+                entry.nextLine(); //clean buffer
             }
         }
-        return input;
     }
 
     public static float readFloat(String message) {
@@ -80,7 +78,7 @@ public class ConsoleReader {
     }
 
     // Custom exceptions
-    public static char readChar(String message) throws CharToLongException {
+    public static char readChar(String message)  {
         String inputString = "";
         char inputChar = ' ';
         boolean validation = false;
@@ -93,16 +91,16 @@ public class ConsoleReader {
                     inputChar = inputString.charAt(0);
                     validation = true;
                 } else {
-                    throw new CharToLongException();
+                    throw new CharTooLongException();
                 }
-            } catch (CharToLongException e) {
+            } catch (CharTooLongException e) {
                 System.out.println(e.getMessage());
             }
         }
         return inputChar;
     }
 
-    public static String readString(String message) throws SentenceToShort {
+    public static String readString(String message)  {
         // validate that the minimum length is 15 characters
         String input = "";
         boolean validation = false;
@@ -114,9 +112,9 @@ public class ConsoleReader {
                 if (input.length() >= 15) {
                     validation = true;
                 } else {
-                    throw new SentenceToShort();
+                    throw new SentenceTooShortException();
                 }
-            } catch (SentenceToShort e) {
+            } catch (SentenceTooShortException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -124,28 +122,26 @@ public class ConsoleReader {
     }
 
     public static boolean readYesNo(String message) {
-        boolean validationYoN = false;
-        boolean bucleValidation = false;
+
         String answer = "";
 
-        while (!bucleValidation) {
+        while (true) {
             try {
                 System.out.println(message);
                 answer = entry.nextLine();
-                if (answer.equals("y")) {
-                    validationYoN = true;
-                    bucleValidation = true;
-                } else if (answer.equals("n")) {
-                    validationYoN = false;
-                    bucleValidation = true;
-                } else {
-                    throw new IncorrectAnswerException();
+                if (answer.equals("s")) {
+                    return true;
                 }
+                if (answer.equals("n")) {
+                    return false;
+                }
+                    throw new IncorrectAnswerException();
+
+
             } catch (IncorrectAnswerException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return validationYoN;
     }
 
 }

@@ -1,13 +1,9 @@
 package n2exercici1;
 
-import java.io.Console;
-import java.net.StandardSocketOptions;
-
-
 public class Main {
 
 
-    public static void main(String[] args) {
+     static void main() {
 
         //try ConsoleReader methods
         insertByte();
@@ -58,7 +54,7 @@ public class Main {
 
     public static void insertYesNo() {
         boolean yesOrNoUser;
-        yesOrNoUser = ConsoleReader.readYesNo("Type 'n' to set the value to false, or 'y' to set it to true.");
+        yesOrNoUser = ConsoleReader.readYesNo("Type 'n' to set the value to false, or 's' to set it to true.");
         System.out.println("Your boolean value is now " + yesOrNoUser);
     }
 }
