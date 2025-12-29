@@ -2,17 +2,18 @@ package n1exercici1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Sale {
 
     private List<Product> products = new ArrayList<>();
-    private double totalPrice = 0d;
+    private double totalPrice = 0.0;
 
     public Sale() {
     }
 
     public List<Product> getAllProducts() {
-        return this.products;
+        return Collections.unmodifiableList(this.products);
     }
 
     public void addProduct(Product product) {
