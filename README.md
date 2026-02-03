@@ -1,6 +1,7 @@
 # SPRINT1.02 Java Exceptions 
 The main objective is to practice the full exception handling flow. We practice declaring and throwing (throws/throw) a custom exception,
 and then ensuring its capture and management using the try-catch block.
+
 ---
 # TASK 1 LEVEL 1
 ## 📌 Exercise Statement
